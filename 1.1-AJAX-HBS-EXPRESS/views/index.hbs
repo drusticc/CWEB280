@@ -37,9 +37,10 @@
       $("#helloBtn").click(function () {
         $.ajax({
           url: "/hello",
-          method: "GET",
+          method: "POST",
+          contentType: "application/json",
           success: function (res) {
-            $("#response").html(res);
+            $("#response").text(res.message);
           },
           error: function () {
             $("#response").text("Error fetching hello message!");

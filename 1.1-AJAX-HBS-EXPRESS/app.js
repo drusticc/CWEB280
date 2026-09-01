@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
   res.render("index"); // render views/index.hbs
 });
 
-app.get("/hello", (req, res) => {
-  res.send("<p>Hello from server! </p>");
+app.post("/hello", (req, res) => {
+  res.json({message: "Hello from the server!"});
 });
 
 app.post("/save-data", (req, res) => {
