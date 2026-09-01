@@ -12,6 +12,7 @@
 
   <input type="text" id="nameInput" placeholder="Enter your name" />
   <button id="sendBtn">Send</button>
+  <button id="helloBtn">Say Hello</button>
 
   <p id="response"></p>
 
@@ -30,6 +31,18 @@
           },
           error: function () {
             $("#response").text("Error sending data!");
+          }
+        });
+      });
+      $("#helloBtn").click(function () {
+        $.ajax({
+          url: "/hello",
+          method: "GET",
+          success: function (res) {
+            $("#response").html(res);
+          },
+          error: function () {
+            $("#response").text("Error fetching hello message!");
           }
         });
       });

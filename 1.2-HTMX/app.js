@@ -13,23 +13,19 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
 
-app.use(express.static(path.join(__dirname, "public")));
-
-
 app.get("/", (req, res) => {
-  res.render("index"); // render views/index.hbs
+  res.render("index");
 });
+
 
 app.get("/hello", (req, res) => {
   res.send("<p>Hello from server! </p>");
 });
 
+
 app.post("/save-data", (req, res) => {
   const { name } = req.body;
-  console.log("Received:", name);
-
-
-  res.json({ message: `Hello, ${name}! Data received successfully.` });
+  res.send(`<p>Nice to meet you, <strong>${name}</strong>!</p>`);
 });
 
 
